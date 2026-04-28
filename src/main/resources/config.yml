@@ -1,0 +1,24 @@
+# SharedHP configuration
+#
+# This plugin is designed for Paper servers.
+# Most server owners should manage participants with /sharedhp add and /sharedhp remove.
+
+# Registered participant UUIDs.
+# This list is saved automatically by /sharedhp add and /sharedhp remove.
+# You may edit it manually while the server is stopped, but command-based management is recommended.
+participants: []
+
+# Maximum shared HP value.
+# Minecraft health uses 20.0 = 10 hearts, 2.0 = 1 heart, 1.0 = half a heart.
+max-shared-health: 20.0
+
+# Healing multiplier applied to normal healing events.
+# 0.25 means healing restores 25% of the original amount to the shared HP pool.
+# You can also change this in-game with /sharedhp heal <percent>.
+heal-multiplier: 0.25
+
+# Boss bar title format.
+# The first %.1f is current shared HP, the second %.1f is max shared HP,
+# and %.0f is the current healing percentage.
+# Use %% when you want to show a literal percent sign.
+bossbar-title-format: "共有HP: %.1f / %.1f | 回復効率%.0f%%"

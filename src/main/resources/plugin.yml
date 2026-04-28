@@ -1,0 +1,34 @@
+name: SharedHP
+version: ${version}
+main: me.tsunoda.sharedhp.SharedHPPlugin
+api-version: '1.21'
+author: Sanpo Temae
+description: Paper-only plugin for sharing one HP pool between registered players.
+
+commands:
+  sharedhp:
+    description: Manage and view the SharedHP Paper plugin.
+    usage: |
+      /sharedhp status
+      /sharedhp add <player>
+      /sharedhp remove <player>
+      /sharedhp list
+      /sharedhp start
+      /sharedhp stop
+      /sharedhp reset
+      /sharedhp set <value>
+      /sharedhp heal <percent>
+      /sharedhp damage [reset]
+    aliases:
+      - shp
+    permission: sharedhp.view
+
+permissions:
+  sharedhp.view:
+    description: Allows viewing SharedHP status, participant list, and damage ranking.
+    default: op
+  sharedhp.admin:
+    description: Allows all SharedHP management commands.
+    default: op
+    children:
+      sharedhp.view: true

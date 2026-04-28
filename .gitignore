@@ -1,0 +1,11 @@
+.gradle/
+.gradle-bootstrap/
+.gradle-user-home/
+build/
+
+*.class
+*.log
+
+# Build artifacts should be uploaded to GitHub Releases, not committed.
+releases/*.jar
+dist/
