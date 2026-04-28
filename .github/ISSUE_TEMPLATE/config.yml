@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 導入方法とFAQ
+    url: https://github.com/Sanpo-Temae/SharedHP#readme
+    about: まず README の導入方法、FAQ、トラブルシューティングを確認してください。

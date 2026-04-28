@@ -41,6 +41,6 @@ tasks.jar {
 tasks.register<Copy>("packageRelease") {
     dependsOn(tasks.jar)
     from(tasks.jar)
-    from(layout.projectDirectory.files("README.md", "README_ja.md", "CHANGELOG.md", "LICENSE"))
+    from(layout.projectDirectory.files("README.md", "README_en.md", "CHANGELOG.md", "LICENSE"))
     into(layout.buildDirectory.dir("release"))
 }

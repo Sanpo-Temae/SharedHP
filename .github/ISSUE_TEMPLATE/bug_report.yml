@@ -1,0 +1,82 @@
+name: 不具合報告
+description: SharedHP の不具合を報告する
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。分かる範囲で大丈夫なので、再現に必要な情報を書いてください。
+
+  - type: input
+    id: sharedhp-version
+    attributes:
+      label: SharedHP のバージョン
+      description: 例: 1.0.0
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: paper-version
+    attributes:
+      label: Paper のバージョン
+      description: サーバー起動ログや /version で確認できます。
+      placeholder: "Paper 1.21.11-130"
+    validations:
+      required: true
+
+  - type: input
+    id: java-version
+    attributes:
+      label: Java のバージョン
+      description: java -version の結果を書いてください。
+      placeholder: "Java 21"
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 起きたこと
+      description: 何が起きたか、期待していた動きと違う点を書いてください。
+      placeholder: "例: /sharedhp start 後にボスバーが表示されません。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: できるだけ順番に書いてください。
+      placeholder: |
+        1. /sharedhp add PlayerName
+        2. /sharedhp start
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: config.yml
+      description: 個人情報が含まれないことを確認してから貼ってください。
+      render: yaml
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: logs/latest.log の該当部分
+      description: エラーが出ている場合は、SharedHP 周辺のログを貼ってください。
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 確認事項
+      options:
+        - label: Paper サーバーで実行しています。Spigot / Bukkit / CraftBukkit ではありません。
+          required: true
+        - label: plugins フォルダに SharedHP のJarを1つだけ入れています。
+          required: true

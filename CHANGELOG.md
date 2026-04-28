@@ -6,6 +6,13 @@ The format is based on Keep a Changelog, and this project uses semantic versioni
 
 ## [Unreleased]
 
+### Changed
+
+- Made the GitHub repository README Japanese-first for Japanese server owners.
+- Added an English README as `README_en.md`.
+- Added GitHub Issues template and GitHub Actions build workflow.
+- Added release and SpigotMC listing draft documents under `docs/`.
+
 ## [1.0.0] - 2026-04-28
 
 ### Changed

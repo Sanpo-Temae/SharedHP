@@ -1,43 +1,43 @@
 # SharedHP
 
-[日本語版 README](README_ja.md)
+[English README](README_en.md)
 
-SharedHP is a **Paper-only** Minecraft Java Edition plugin that lets registered players share one HP pool.
+SharedHP は、登録したプレイヤーたちが 1つのHPを共有する **Minecraft Java版 Paper専用** プラグインです。
 
-It is designed for challenge videos, cooperative survival events, and custom multiplayer企画 where damage and healing should affect the whole team.
+協力サバイバル、企画動画、イベントサーバーなどで「誰かがダメージを受けると全員の共有HPが減る」遊びを作るためのプラグインです。
 
-## Important: Paper Only
+## 重要: Paper専用
 
-SharedHP is built against `paper-api:1.21.11-R0.1-SNAPSHOT`.
+SharedHP は `paper-api:1.21.11-R0.1-SNAPSHOT` を使ってビルドしています。
 
-- Supported: **Paper 1.21.11**
-- Required Java: **Java 21**
-- Not supported: **Spigot / Bukkit / CraftBukkit**
-- SpigotMC listing note: **Requires Paper. Spigot/Bukkit are not supported.**
+- 対応: **Paper 1.21.11**
+- 必要Java: **Java 21**
+- 非対応: **Spigot / Bukkit / CraftBukkit**
+- SpigotMC掲載時の注意: **Requires Paper. Spigot/Bukkit are not supported.**
 
-The plugin may not load or may not work correctly on non-Paper servers.
+Paper以外のサーバーでは、読み込みに失敗したり、正しく動作しない可能性があります。
 
-## Features
+## 主な機能
 
-- Register any number of participants with `/sharedhp add <player>`
-- Registered online participants share one internal HP pool
-- Damage subtracts from the shared HP pool once
-- Healing restores only 25% of the original healing amount by default
-- Healing efficiency can be changed in-game with `/sharedhp heal <percent>`
-- Participants' HP is synchronized to the shared HP value
-- Absorption hearts are disabled for participants
-- Boss bar shows current shared HP
-- Lethal shared damage kills all online participants
-- Damage ranking command for participants
-- Participant list is saved in `plugins/SharedHP/config.yml`
+- `/sharedhp add <player>` で任意人数の参加者を登録
+- 登録済みのオンライン参加者が 1つの内部HPを共有
+- ダメージは共有HPから1回分だけ減少
+- 回復量はデフォルトで通常の25%
+- `/sharedhp heal <percent>` で回復効率をゲーム内から変更可能
+- 参加者のHPを共有HPに同期
+- 参加者の吸収ハートを無効化
+- ボスバーで共有HPを表示
+- 共有HPが0になるとオンライン参加者全員が死亡
+- 参加者ごとの被ダメージランキングを表示
+- 参加者リストは `plugins/SharedHP/config.yml` に保存
 
-## Download
+## ダウンロード
 
-Download the latest `SharedHP-x.y.z.jar` from GitHub Releases or the SpigotMC resource page.
+GitHub Releases または SpigotMC のリソースページから、最新版の `SharedHP-x.y.z.jar` をダウンロードしてください。
 
-Only put **one** SharedHP jar in your server's `plugins` folder.
+サーバーの `plugins` フォルダに入れる SharedHP のJarは **必ず1つだけ** にしてください。
 
-Do not install multiple versions at the same time, such as:
+悪い例:
 
 ```text
 plugins/
@@ -45,66 +45,66 @@ plugins/
   SharedHP-0.1.4.jar
 ```
 
-Keep only the latest jar:
+良い例:
 
 ```text
 plugins/
   SharedHP-1.0.0.jar
 ```
 
-## Installation
+## 導入方法
 
-1. Stop the server.
-2. Put the latest `SharedHP-x.y.z.jar` into the server's `plugins` folder.
-3. Start the server.
-4. Run `/plugins` and confirm `SharedHP` is shown in green.
-5. Run `/sharedhp status`.
-6. Add participants with `/sharedhp add <player>`.
-7. Start the shared HP system with `/sharedhp start`.
+1. サーバーを停止します。
+2. 最新版の `SharedHP-x.y.z.jar` をサーバーの `plugins` フォルダに入れます。
+3. サーバーを起動します。
+4. `/plugins` を実行し、`SharedHP` が緑色で表示されることを確認します。
+5. `/sharedhp status` で状態を確認します。
+6. `/sharedhp add <player>` で参加者を登録します。
+7. `/sharedhp start` で共有HPを開始します。
 
-Use `stop -> replace jar -> start` when updating. Do not use `/reload`.
+更新時も `/reload` は使わず、`stop -> Jar入れ替え -> 起動` の流れを推奨します。
 
-## Commands
+## コマンド
 
-| Command | Permission | Description |
+| コマンド | 権限 | 説明 |
 | --- | --- | --- |
-| `/sharedhp status` | `sharedhp.view` | Shows active state, shared HP, participant count, online participants, boss bar state, and heal multiplier. |
-| `/sharedhp list` | `sharedhp.view` | Lists registered participants and online/offline state. |
-| `/sharedhp damage` | `sharedhp.view` | Shows the damage ranking to online participants. |
-| `/sharedhp add <player>` | `sharedhp.admin` | Adds an online player as a participant. |
-| `/sharedhp remove <player>` | `sharedhp.admin` | Removes a participant. |
-| `/sharedhp start` | `sharedhp.admin` | Starts the shared HP system if at least one registered participant is online. |
-| `/sharedhp start force` | `sharedhp.admin` | Compatibility alias. Currently uses the same conditions as `/sharedhp start`. |
-| `/sharedhp stop` | `sharedhp.admin` | Stops shared HP processing and hides the boss bar. |
-| `/sharedhp reset` | `sharedhp.admin` | Resets shared HP and damage ranking. |
-| `/sharedhp set <value>` | `sharedhp.admin` | Sets shared HP, clamped between `0.0` and max shared HP. |
-| `/sharedhp heal <percent>` | `sharedhp.admin` | Sets healing efficiency. Example: `/sharedhp heal 25` means 25%. |
-| `/sharedhp damage reset` | `sharedhp.admin` | Resets the damage ranking. |
+| `/sharedhp status` | `sharedhp.view` | active状態、共有HP、登録人数、オンライン対象者、ボスバー状態、回復倍率を表示します。 |
+| `/sharedhp list` | `sharedhp.view` | 登録済み参加者とオンライン/オフライン状態を表示します。 |
+| `/sharedhp damage` | `sharedhp.view` | 被ダメージランキングをオンライン参加者に表示します。 |
+| `/sharedhp add <player>` | `sharedhp.admin` | オンライン中のプレイヤーを参加者に追加します。 |
+| `/sharedhp remove <player>` | `sharedhp.admin` | 参加者を削除します。 |
+| `/sharedhp start` | `sharedhp.admin` | 登録済み参加者が1人以上オンラインなら共有HPを開始します。 |
+| `/sharedhp start force` | `sharedhp.admin` | 互換用の別名です。現在は `/sharedhp start` と同じ条件で開始します。 |
+| `/sharedhp stop` | `sharedhp.admin` | 共有HP処理を停止し、ボスバーを非表示にします。 |
+| `/sharedhp reset` | `sharedhp.admin` | 共有HPと被ダメージランキングをリセットします。 |
+| `/sharedhp set <value>` | `sharedhp.admin` | 共有HPを指定値に設定します。`0.0` から最大HPの範囲に丸められます。 |
+| `/sharedhp heal <percent>` | `sharedhp.admin` | 回復効率を変更します。例: `/sharedhp heal 25` で25%。 |
+| `/sharedhp damage reset` | `sharedhp.admin` | 被ダメージランキングをリセットします。 |
 
-Alias:
+短縮コマンド:
 
 ```text
 /shp
 ```
 
-## Permissions
+## 権限
 
-| Permission | Default | Description |
+| 権限 | デフォルト | 説明 |
 | --- | --- | --- |
-| `sharedhp.view` | `op` | Allows viewing status, participant list, and damage ranking. |
-| `sharedhp.admin` | `op` | Allows all management commands. Includes `sharedhp.view`. |
+| `sharedhp.view` | `op` | status、list、damage などの閲覧系コマンドを許可します。 |
+| `sharedhp.admin` | `op` | すべての管理コマンドを許可します。`sharedhp.view` を含みます。 |
 
-Console can run all commands.
+コンソールからはすべてのコマンドを実行できます。
 
-## Configuration
+## 設定ファイル
 
-`config.yml` is generated at:
+`config.yml` は初回起動時に自動生成されます。
 
 ```text
 plugins/SharedHP/config.yml
 ```
 
-Default config:
+デフォルト設定:
 
 ```yaml
 participants: []
@@ -116,40 +116,40 @@ bossbar-title-format: "共有HP: %.1f / %.1f | 回復効率%.0f%%"
 
 ### `participants`
 
-UUID list of registered participants.
+登録済み参加者のUUIDリストです。
 
-Normally, manage this with:
+基本的には以下のコマンドで管理してください。
 
 ```text
 /sharedhp add <player>
 /sharedhp remove <player>
 ```
 
-Manual editing is possible while the server is stopped.
+サーバー停止中であれば、手動編集も可能です。
 
 ### `max-shared-health`
 
-Maximum shared HP.
+共有HPの最大値です。
 
-Minecraft health values:
+MinecraftのHP値:
 
-- `20.0` = 10 hearts
-- `2.0` = 1 heart
-- `1.0` = half a heart
+- `20.0` = 10ハート
+- `2.0` = 1ハート
+- `1.0` = 半ハート
 
 ### `heal-multiplier`
 
-How much normal healing is applied to shared HP.
+通常の回復量のうち、共有HPへ反映する割合です。
 
-Default:
+デフォルト:
 
 ```yaml
 heal-multiplier: 0.25
 ```
 
-This means 25% healing efficiency.
+これは回復効率25%を意味します。
 
-You can change it in-game:
+ゲーム内から変更する例:
 
 ```text
 /sharedhp heal 25
@@ -157,80 +157,82 @@ You can change it in-game:
 /sharedhp heal 100
 ```
 
-The command value is a percent number. `/sharedhp heal 25` saves `heal-multiplier: 0.25`.
+コマンドではパーセント数値で指定します。`/sharedhp heal 25` は `heal-multiplier: 0.25` として保存されます。
 
 ### `bossbar-title-format`
 
-Boss bar title format.
+ボスバーのタイトル形式です。
 
-The first `%.1f` is current shared HP. The second `%.1f` is max shared HP.
-The `%.0f` value is the current healing percentage.
+最初の `%.1f` は現在の共有HP、2つ目の `%.1f` は最大共有HPです。
+`%.0f` は現在の回復効率パーセントです。
 
-Use `%%` to show a literal percent sign.
+文字として `%` を表示したい場合は `%%` と書いてください。
 
-## FAQ
+## よくある質問
 
-### Does this plugin support Spigot?
+### Spigotに対応していますか？
 
-No. SharedHP is a Paper-only plugin and is not supported on Spigot, Bukkit, or CraftBukkit.
+いいえ。SharedHP は Paper専用プラグインです。Spigot、Bukkit、CraftBukkit は非対応です。
 
-### The command is red or unknown in-game.
+### ゲーム内でコマンドが赤く表示されます。
 
-Check that:
+以下を確認してください。
 
-- The plugin loaded successfully with `/plugins`
-- You are OP or have the required permission
-- You installed only one SharedHP jar
-- The server is Paper 1.21.11
+- `/plugins` で SharedHP が緑色表示されているか
+- OP権限、または必要な権限を持っているか
+- SharedHP のJarを複数入れていないか
+- サーバーが Paper 1.21.11 か
 
-### Should I use `/reload` after updating?
+### 更新後に `/reload` を使っていいですか？
 
-No. Stop the server, replace the jar, then start the server again.
+推奨しません。サーバーを停止し、Jarを入れ替えてから起動してください。
 
-### Why does healing feel weak?
+### 回復量が少なく感じます。
 
-By default, healing is multiplied by `0.25`. Use `/sharedhp heal <percent>` or change `heal-multiplier` if you want different behavior.
+デフォルトでは回復量が `0.25` 倍、つまり25%になります。`/sharedhp heal <percent>` または `heal-multiplier` で変更できます。
 
-### Where are errors logged?
+### エラーはどこで確認できますか？
 
-Check:
+以下のログを確認してください。
 
 ```text
 logs/latest.log
 ```
 
-If you report a bug, include the relevant log section and your Paper version.
+不具合報告時は、該当するログ部分と Paper バージョンを共有してください。
 
-## Troubleshooting
+## トラブルシューティング
 
-- If `SharedHP` does not appear in `/plugins`, check that the jar is directly inside `plugins`.
-- If `SharedHP` is red in `/plugins`, check `logs/latest.log`.
-- If you see `UnsupportedClassVersionError`, run the server with Java 21.
-- If commands do not appear, check OP status or permissions.
-- If config changes do not apply, stop the server, edit config, then start the server.
+- `/plugins` に SharedHP が出ない場合は、Jarが `plugins` フォルダ直下にあるか確認してください。
+- `/plugins` で SharedHP が赤色の場合は、`logs/latest.log` を確認してください。
+- `UnsupportedClassVersionError` が出た場合は、Java 21 でサーバーを起動してください。
+- コマンドが出ない場合は、OP権限または権限設定を確認してください。
+- config変更が反映されない場合は、サーバー停止中に編集してから起動してください。
 
-## Bug Reports
+## 不具合報告
 
-When reporting a bug, include:
+不具合は GitHub Issues から報告できます。
 
-- SharedHP version
-- Paper version
-- Java version
+報告時は、可能な範囲で以下を含めてください。
+
+- SharedHP のバージョン
+- Paper のバージョン
+- Java のバージョン
 - `plugins/SharedHP/config.yml`
-- Relevant part of `logs/latest.log`
-- Steps to reproduce the issue
+- `logs/latest.log` の該当部分
+- 再現手順
 
-## Links
+## リンク
 
-- GitHub Releases: TODO
-- SpigotMC Resource: TODO
-- Blog guide: TODO
-- YouTube guide: TODO
+- GitHub Releases: このリポジトリの Releases ページを確認してください。
+- SpigotMC Resource: 準備中
+- ブログ解説記事: 準備中
+- YouTube解説動画: 準備中
 
-## Changelog
+## 更新履歴
 
-See [CHANGELOG.md](CHANGELOG.md).
+[CHANGELOG.md](CHANGELOG.md) を確認してください。
 
-## License
+## ライセンス
 
-SharedHP is released under the MIT License. See [LICENSE](LICENSE).
+SharedHP は MIT License で公開されています。詳しくは [LICENSE](LICENSE) を確認してください。
