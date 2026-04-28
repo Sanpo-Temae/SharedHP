@@ -33,7 +33,7 @@ Paper以外のサーバーでは、読み込みに失敗したり、正しく動
 
 ## ダウンロード
 
-GitHub Releases または SpigotMC のリソースページから、最新版の `SharedHP-x.y.z.jar` をダウンロードしてください。
+[GitHub Releases](https://github.com/Sanpo-Temae/SharedHP/releases/latest) または SpigotMC のリソースページから、最新版の `SharedHP-x.y.z.jar` をダウンロードしてください。
 
 サーバーの `plugins` フォルダに入れる SharedHP のJarは **必ず1つだけ** にしてください。
 
